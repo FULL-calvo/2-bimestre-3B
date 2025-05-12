@@ -3,39 +3,26 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://randomuser.me/api/?results=10") // buscando 10 usuários
-      .then((res) => setUsers(res.data.results))
-      .catch((err) => console.error(err));
+    axios.get("https://jsonplaceholder.typicode.com/posts?_limit=10") 
+      .then((res) => (setPosts(res.data), console.log(res.data)));
+      
   }, []);
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Lista de Usuários</h2>
-      <ul className="space-y-4">
-        {users.map((user, index) => (
-          <li
-            key={index}
-            className="border p-4 rounded hover:shadow transition-all"
-          >
-            <Link to={`/detalhes/${index}`} className="text-blue-600 hover:underline">
-              <div className="flex items-center gap-4">
-                <img
-                  src={user.picture.thumbnail}
-                  alt={user.name.first}
-                  className="rounded-full"
-                />
-                <span>
-                  {user.name.first} {user.name.last}
-                </span>
-              </div>
-            </Link>
-          </li>
-        ))}
+    <>
+    <div>
+      <h2>Lista de posts</h2>
+      <ul>
+            {posts.map((posts) => (
+              <li key={posts.id}>
+                <Link to= {`/detalhes/${posts.id}`}>{posts.title}</Link>
+              </li>
+          ))}
       </ul>
     </div>
-  );
-}
+    </>
+  )
+} 
