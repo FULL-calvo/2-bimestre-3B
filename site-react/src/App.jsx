@@ -1,7 +1,4 @@
 import React from "react";
-import Header from "./components/header";
-import Main from "./components/main";
-import Footer from "./components/footer";
 import Detalhes from "./pages/detalhes";
 import Home from "./pages/home";
 import Favoritos from "./pages/favoritos";
