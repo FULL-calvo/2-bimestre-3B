@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 export default function Detalhes() {
   const { id } = useParams();
-  const [post, setPost] = useState(null);
+  const [post, setPosts] = useState(null);
 
 
   useEffect(() => {
