@@ -17,7 +17,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { useFavorites } from "../../context/FavoritesContext";
-import FavoriteButton from "../components/FavoriteButton";
+import FavoriteButton from "../../components/FavoriteButton";
 
 // Componente de Loading aprimorado
 const LoadingSpinner = () => (
