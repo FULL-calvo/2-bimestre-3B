@@ -1,5 +1,5 @@
-import { useFavoritos } from "../favoritos";
-import CountryCard from "../components/CountryCard";
+import { useFavoritos } from "../../context/FavoritesContext";
+import CountryCard from "../../components/CountryCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

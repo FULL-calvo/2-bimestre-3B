@@ -1,5 +1,5 @@
 import React from "react";
-import { useFavoritos } from "../context/FavoritesContext";
+import { useFavoritos } from "../../context/FavoritesContext";
 
 export default function FavoriteButton({ id }) {
   const { isFavorite, toggleFavorite } = useFavoritos();
