@@ -1,27 +1,31 @@
-import React from 'react';
-import { useFavoritos } from '../../context/FavoritesContext';
+// src/components/CountryCard.jsx
+import { useFavorites } from "../../context/FavoritesContext";
+import { Link } from "react-router-dom";
 
-export default function CountryCard({ id, name, flag, capital, region, population }) {
-  const { isFavorite, toggleFavorite } = useFavoritos();
+export default function CountryCard({ country }) {
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorite = favorites.some((item) => item.cca3 === country.cca3);
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
-      <img src={flag} alt={`Bandeira de ${name}`} className="w-full h-40 object-cover rounded-md mb-4" />
-      <h2 className="text-xl font-bold mb-2">{name}</h2>
-      <p className="text-sm text-gray-600">Capital: {capital || 'N/A'}</p>
-      <p className="text-sm text-gray-600">Região: {region}</p>
-      <p className="text-sm text-gray-600 mb-4">População: {population.toLocaleString()}</p>
-      
-      <button
-        onClick={() => toggleFavorite(id)}
-        className={`w-full px-4 py-2 rounded-lg font-semibold transition-all ${
-          isFavorite(id)
-            ? 'bg-red-500 text-white hover:bg-red-600'
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-        }`}
-      >
-        {isFavorite(id) ? 'Remover dos Favoritos ❤️' : 'Adicionar aos Favoritos 🤍'}
-      </button>
+    <div className="border p-4 rounded shadow-md flex flex-col items-start">
+      <h2 className="text-xl font-semibold">{country.name.common}</h2>
+      <p className="text-sm mb-2">Região: {country.region}</p>
+      <div className="flex gap-2">
+        <Link
+          to={`/detalhes/${country.cca3}`}
+          className="px-3 py-1 bg-blue-500 text-white rounded"
+        >
+          Detalhes
+        </Link>
+        <button
+          onClick={() => toggleFavorite(country)}
+          className={`px-3 py-1 rounded text-white ${
+            isFavorite ? "bg-red-500" : "bg-green-500"
+          }`}
+        >
+          {isFavorite ? "Remover" : "Favoritar"}
+        </button>
+      </div>
     </div>
   );
 }
