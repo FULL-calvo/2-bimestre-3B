@@ -1,40 +1,39 @@
+// src/pages/detalhes.jsx
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 export default function Detalhes() {
-  const { id } = useParams(); // id é o cca3 do país
-  const [pais, setPais] = useState(null);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPais() {
+    async function fetchProduct() {
       try {
-        const res = await axios.get(`https://restcountries.com/v3.1/alpha/${id}`);
-        setPais(res.data[0]);
+        const res = await axios.get(`https://dummyjson.com/products/${id}`);
+        setProduct(res.data);
       } catch (error) {
-        console.error("Erro ao buscar país:", error);
+        console.error("Erro ao buscar produto:", error);
       }
       setLoading(false);
     }
-    fetchPais();
+    fetchProduct();
   }, [id]);
 
-  if (loading) return <p>Carregando detalhes do país...</p>;
-  if (!pais) return <p>País não encontrado.</p>;
+  if (loading) return <p>Carregando detalhes do produto...</p>;
+  if (!product) return <p>Produto não encontrado.</p>;
 
   return (
-    <div>
-      <h2>{pais.name.common}</h2>
-      <img src={pais.flags.svg} alt={`Bandeira de ${pais.name.common}`} width={150} />
-      <p><strong>Capital:</strong> {pais.capital ? pais.capital.join(", ") : "Sem capital"}</p>
-      <p><strong>Região:</strong> {pais.region}</p>
-      <p><strong>Sub-região:</strong> {pais.subregion}</p>
-      <p><strong>População:</strong> {pais.population.toLocaleString()}</p>
-      <p><strong>Área:</strong> {pais.area.toLocaleString()} km²</p>
-      <p><strong>Idiomas:</strong> {pais.languages ? Object.values(pais.languages).join(", ") : "Sem dados"}</p>
-      <p><strong>Moeda(s):</strong> {pais.currencies ? Object.values(pais.currencies).map(c => c.name).join(", ") : "Sem dados"}</p>
-      <Link to="/">Voltar para lista</Link>
+    <div className="p-4">
+      <h2 className="text-2xl font-bold">{product.title}</h2>
+      <img src={product.thumbnail} alt={product.title} className="my-4 w-full max-w-md object-cover rounded" />
+      <p><strong>Descrição:</strong> {product.description}</p>
+      <p><strong>Preço:</strong> ${product.price}</p>
+      <p><strong>Categoria:</strong> {product.category}</p>
+      <p><strong>Marca:</strong> {product.brand}</p>
+      <p><strong>Estoque:</strong> {product.stock}</p>
+      <Link to="/" className="text-blue-500 underline mt-4 inline-block">Voltar para lista</Link>
     </div>
   );
 }

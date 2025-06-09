@@ -8,12 +8,12 @@ export const useFavorites = () => useContext(FavoritesContext);
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
-  const toggleFavorite = (country) => {
+  const toggleFavorite = (product) => {
     setFavorites((prev) => {
-      const exists = prev.find((item) => item.cca3 === country.cca3);
+      const exists = prev.find((item) => item.id === product.id);
       return exists
-        ? prev.filter((item) => item.cca3 !== country.cca3)
-        : [...prev, country];
+        ? prev.filter((item) => item.id !== product.id)
+        : [...prev, product];
     });
   };
 

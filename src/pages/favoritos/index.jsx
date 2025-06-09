@@ -1,7 +1,6 @@
-// Atualização do Favoritos.jsx
+// src/pages/favoritos.jsx
 import { useFavorites } from "../../context/FavoritesContext";
-import CountryCard from "../../components/countryCard";
-
+import ProductCard from "../../components/ProductCard";
 
 export default function Favoritos() {
   const { favorites } = useFavorites();
@@ -9,11 +8,11 @@ export default function Favoritos() {
   return (
     <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {favorites.length > 0 ? (
-        favorites.map((country) => (
-          <CountryCard key={country.cca3} country={country} />
+        favorites.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))
       ) : (
-        <p className="text-center col-span-full">Nenhum país favorito.</p>
+        <p className="text-center col-span-full">Nenhum produto favorito.</p>
       )}
     </div>
   );
