@@ -1,4 +1,4 @@
-// src/components/ProductCard.jsx
+// src/components/ProductCard.jsx teste 
 import { useFavorites } from "../../context/FavoritesContext";
 import { Link } from "react-router-dom";
 
