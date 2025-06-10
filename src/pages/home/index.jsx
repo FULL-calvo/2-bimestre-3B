@@ -12,10 +12,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div className="bg-white min-h-screen flex justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4 max-w-6xl w-full">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
+  
+  
 }

@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
       <div className="flex gap-2">
         <Link
           to={`/detalhes/${product.id}`}
-          className="px-3 py-1 bg-blue-500 text-white rounded"
+          className="bg-black text-white py-2 rounded hover:bg-gray-800"
         >
           Detalhes
         </Link>
