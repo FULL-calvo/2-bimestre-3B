@@ -1,6 +1,6 @@
 // src/pages/favoritos.jsx
 import { useFavorites } from "../../context/FavoritesContext";
-import ProductCard from "../../components/ProductCard";
+import ProductCard from "../../components/countryCard/ProductCard";
 
 export default function Favoritos() {
   const { favorites } = useFavorites();

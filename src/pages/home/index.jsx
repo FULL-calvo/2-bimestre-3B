@@ -1,7 +1,7 @@
 // src/pages/home.jsx
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ProductCard from "../../components/ProductCard";
+import ProductCard from "../../components/countryCard/ProductCard";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
