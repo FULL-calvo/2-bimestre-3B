@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: #ffffff;
 
   font-synthesis: none;
@@ -15,11 +15,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #f7f7ff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 body {
@@ -79,11 +79,11 @@ html, body, #root {
 
 #root {
   display: flex;
-  justify-content: center; /* centraliza horizontalmente */
+  
 }
 
 main {
-  background: white;
+  background: #ffffff;
   padding: 30px 40px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -100,12 +100,12 @@ nav a {
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
-  color: #0077cc;
+  color: #000000;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #005fa3;
+  color: #0d0d0e;
 }
 
 ul {
@@ -148,8 +148,8 @@ img {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #dee1e4;
-  color: white;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -158,5 +158,5 @@ img {
 
 .card button:hover,
 .card a:hover {
-  background-color: #0056b3;
+  background-color: #020202;
 }
